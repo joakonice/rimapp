@@ -19,7 +19,7 @@ function Map() {
       setPosition([pos.coords.latitude, pos.coords.longitude]);
     });
 
-    axios.get('http://localhost:5000/api/events')
+    axios.get('/api/events')
       .then(res => setEvents(res.data))
       .catch(err => console.error(err));
   }, []);

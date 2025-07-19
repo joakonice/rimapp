@@ -12,7 +12,7 @@ function EventForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/events', { title, description, date, location: { type: 'Point', coordinates: location }, organizer })
+    axios.post('/api/events', { title, description, date, location: { type: 'Point', coordinates: location }, organizer })
       .then(() => alert('Event created!'))
       .catch(err => console.error(err));
   };
