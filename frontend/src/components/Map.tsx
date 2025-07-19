@@ -17,6 +17,9 @@ function Map() {
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((pos) => {
       setPosition([pos.coords.latitude, pos.coords.longitude]);
+    }, (err) => {
+      console.error(err);
+      setPosition([51.505, -0.09]); // Fallback if geolocation fails
     });
 
     axios.get('/api/events')
