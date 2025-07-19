@@ -28,7 +28,7 @@ function Map() {
     <MapContainer center={position} zoom={13} style={{ height: '100vh', width: '100%' }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {events.map(event => (
-        <Marker key={event._id} position={[event.location.coordinates[1], event.location.coordinates[0]] as L.LatLngTuple}>
+        <Marker key={event._id} position={event.location.coordinates.reverse() as L.LatLngTuple}>
           <Popup>{event.title} - {new Date(event.date).toLocaleString()}</Popup>
         </Marker>
       ))}

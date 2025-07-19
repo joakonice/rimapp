@@ -10,7 +10,7 @@ function EventForm() {
   const [organizer, setOrganizer] = useState('');
   const [location, setLocation] = useState<[number, number] | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     axios.post('http://localhost:5000/api/events', { title, description, date, location: { type: 'Point', coordinates: location }, organizer })
       .then(res => alert('Event created!'))
@@ -23,7 +23,7 @@ function EventForm() {
         setLocation([e.latlng.lng, e.latlng.lat]);
       },
     });
-    return location ? <Marker position={[location[1], location[0]] as L.LatLngTuple} /> : null;
+    return location ? <Marker position={location.reverse() as L.LatLngTuple} /> : null;
   };
 
   return (

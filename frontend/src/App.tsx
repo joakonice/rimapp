@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import Map from './components/Map';
-import EventForm from './components/EventForm';
+import Map from './components/Map.tsx';
+import EventForm from './components/EventForm.tsx';
 import './App.css';
 
 function App() {
