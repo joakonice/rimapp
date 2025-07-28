@@ -22,7 +22,7 @@ function Map() {
       setPosition([51.505, -0.09]); // Fallback if geolocation fails
     });
 
-    axios.get('/api/events')
+    axios.get('https://rimapp-eqf8.vercel.app/api/events')
       .then(res => setEvents(res.data))
       .catch(err => console.error(err));
   }, []);

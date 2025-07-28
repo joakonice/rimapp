@@ -12,7 +12,7 @@ function EventForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    axios.post('/api/events', { title, description, date, location: { type: 'Point', coordinates: location }, organizer })
+    axios.post('https://rimapp-eqf8.vercel.app/api/events', { title, description, date, location: { type: 'Point', coordinates: location }, organizer })
       .then(() => alert('Event created!'))
       .catch(err => console.error(err));
   };
